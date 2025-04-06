@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Java Saloon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .section {
+      transition: all 0.4s ease-in-out;
+    }
+    .active {
+      display: block !important;
+    }
+    .hidden {
+      display: none;
+    }
+    /* Scroll Animations */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-gray-50 to-white text-gray-800 font-sans" id="body">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-black to-gray-800 text-white text-center py-12 shadow-xl">
+    <h1 class="text-5xl font-extrabold tracking-wide animate-pulse">Java Saloon</h1>
+    <p class="mt-3 text-lg italic text-gray-300">Style, Elegance & Precision ✂️</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav id="nav" class="bg-gray-900 text-white flex justify-center space-x-8 py-5 text-lg font-semibold sticky top-0 z-50 shadow-md transition-all">
+    <a href="#home" onclick="showSection('home')" class="hover:text-yellow-400 transition">Home</a>
+    <a href="#services" onclick="showSection('services')" class="hover:text-yellow-400 transition">Services</a>
+    <a href="#contact" onclick="showSection('contact')" class="hover:text-yellow-400 transition">Contact</a>
+    <button onclick="toggleDarkMode()" class="text-yellow-500">🌙</button>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto px-6 py-10">
+
+    <!-- Home Section -->
+    <section id="home" class="section active fade-in">
+      <h2 class="text-3xl font-bold mb-4">Welcome to <span class="text-yellow-500">Java Saloon</span></h2>
+      <p class="text-lg leading-relaxed">
+        At Java Saloon, we blend tradition with trend. Whether you're looking for a sharp cut, fresh fade, or classic grooming – our expert stylists ensure a relaxing and stylish experience every time.
+      </p>
+      <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-lg shadow-sm">
+        <p class="font-semibold text-yellow-700">🔥 This Month's Offer</p>
+        <p>Enjoy a <span class="font-bold">free beard trim</span> with every haircut!</p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section hidden fade-in mt-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">Our Services</h2>
+      <div class="grid md:grid-cols-2 gap-6 text-base">
+        <!-- Card 1 -->
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold mb-2">💇 Haircuts</h3>
+          <p>Modern or classic, tailored to your style.</p>
+          <p class="text-sm text-gray-600 mt-2">Price: Rs. 1000</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold mb-2">🪒 Beard Grooming</h3>
+          <p>Shape, trim, and style for the perfect beard.</p>
+          <p class="text-sm text-gray-600 mt-2">Price: Rs. 600</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold mb-2">💆 Head Massage</h3>
+          <p>Relaxing head massage with natural oils.</p>
+          <p class="text-sm text-gray-600 mt-2">Price: Rs. 700</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold mb-2">🎨 Hair Coloring</h3>
+          <p>Custom colors, highlights, and grey coverage.</p>
+          <p class="text-sm text-gray-600 mt-2">From Rs. 1500</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section hidden fade-in mt-12">
+      <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
+      <p class="mb-6 text-base">We'd love to hear from you. Send us a message to book an appointment or ask a question.</p>
+      <form onsubmit="submitForm(event)" class="space-y-5">
+        <input type="text" placeholder="Your Name" required class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <input type="email" placeholder="Your Email" required class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <textarea rows="4" placeholder="Your Message" required class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+        <button type="submit" class="bg-black text-white px-6 py-3 rounded-full hover:bg-yellow-500 hover:text-black transition duration-300">Send Message</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white text-center py-6 mt-16">
+    <p class="text-sm">&copy; 2025 Java Saloon. All rights reserved. | Designed with ❤️ by You</p>
+    <div class="flex justify-center space-x-6 mt-4">
+      <a href="#" class="text-white hover:text-yellow-500">Facebook</a>
+      <a href="#" class="text-white hover:text-yellow-500">Instagram</a>
+      <a href="#" class="text-white hover:text-yellow-500">Twitter</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll(".section");
+      sections.forEach(section => section.classList.add("hidden"));
+      document.getElementById(id).classList.remove("hidden");
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      alert("Your message has been sent successfully!");
+    }
+
+    // Smooth Scrolling for anchor links
+    document.querySelectorAll("a[href^='#']").forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    });
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      const body = document.getElementById('body');
+      body.classList.toggle('bg-gray-800');
+      body.classList.toggle('text-white');
+      body.classList.toggle('bg-gradient-to-b');
+    }
+
+    // Scroll Animations
+    window.addEventListener("scroll", function() {
+      const elements = document.querySelectorAll(".fade-in");
+      elements.forEach(element => {
+        const position = element.getBoundingClientRect();
+        if (position.top < window.innerHeight) {
+          element.classList.add("visible");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
